@@ -4,20 +4,14 @@ import './App.css';
 
 class Category extends Component {
 
-	state: {
-
+	state = {
+		category: this.props.category
 	}
-
 
 	//Render
 	render() {
 		return(
-			<div>
-				<li>Web Application</li>
-				<li>JavaScripts</li>
-				<li>Python</li>
-				<li>Git</li>
-			</div>
+			 <li>{this.state.category.id}# {this.state.category.name}</li>
 
 		)
 	}

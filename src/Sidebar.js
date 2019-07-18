@@ -7,7 +7,15 @@ class Sidebar extends Component {
 	state = {
 		sidebarName: "Categories",
 
-		categories: 	[]
+		categories: 	[
+			{id: 1,
+			name: "Web Application"},
+			{id: 2,
+			name: "Git"},
+			{id: 3,
+			name: "Programming"}
+
+		]
 
 	};
 
@@ -18,7 +26,13 @@ class Sidebar extends Component {
 			<div id="sidebar" className="col-2 ">
 					 <h4>{this.state.sidebarName}</h4>
 					 <div className="ul">
-						 <Category />
+					 {
+						this.state.categories.map((c) => {
+							return <Category category={c} key={c.id}/>
+						})
+					}
+
+
 					 </div>
 				 </div>
 		);
