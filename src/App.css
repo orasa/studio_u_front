@@ -1,19 +1,73 @@
-.App {
-  text-align: center;
+.wrap {
+   height: 100vh;
+   width: 100vw;
+   background-color: #fafafa;
+   padding: 20px;
+   margin-top: 0;
+
+ }
+ #header {
+   height: 300px;
+   width: 100vw;
+  background-image: url("samui.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top: 5%;
+
+    }
+  .title {
+    height: 20%;
+    width: auto;
+    padding: 10px;
+    margin: 20px;
+    position: relative;
+    left: 60%;
+    font-size: 50px;
+    color: white;
+
+
+  }
+
+
+#main {
+
+    height: 100vh;
+    width: 100vw;
+    border-radius: 10px;
+    position: relative;
+    top: 100%;
+    margin-top: 0;
+    display: flex;
+
+  }
+#sidebar {
+  margin: 20px 10px 10px 20px;
+
+  width: 300px;
+  border-radius: 10px;
+
 }
 
+#videoContent  {
+  display: flex-row;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+.d-flex {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
 
-.App-link {
-  color: #61dafb;
+}
+#videoBox  {
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-top: 50px;
+  border-radius: 10px;
+
 }
