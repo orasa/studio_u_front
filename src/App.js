@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Samui from './samui.jpg'
-
 import './App.css';
+import Sidebar from './Sidebar'
 
 class App extends Component {
 
