@@ -7,14 +7,15 @@ class Sidebar extends Component {
 	state = {
 		sidebarName: "Categories",
 
-		categories: 	[
+		categories: [
 			{id: 1,
-			name: "Web Application"},
+			name: "Programming"},
 			{id: 2,
-			name: "Git"},
+			name: "Web Applications"},
 			{id: 3,
-			name: "Programming"}
-
+			name: "Data Science"},
+			{id: 4,
+			name: "Mobile-App"}
 		]
 
 	};
@@ -23,33 +24,20 @@ class Sidebar extends Component {
 	render() {
 		return (
 
-			<div id="sidebar" className="col-2 ">
+			<div id="sidebar" className="col-2 p-2 m-2">
 					 <h4>{this.state.sidebarName}</h4>
-					 <div className="ul">
+					 <div className="sidebarUl ">
 					 {
 						this.state.categories.map((c) => {
 							return <Category category={c} key={c.id}/>
 						})
 					}
 
-
 					 </div>
 				 </div>
 		);
 	}
 }
-{/*
-<div id="sidebar" className="col-2 ">
-		 <h4>Categories</h4>
-		 <div className="ul ">
-			 <li>Web Application</li>
-			 <li>JavaScripts</li>
-			 <li>Python</li>
-			 <li>Git</li>
-		 </div>
-	 </div>*/}
-
-
 
 
 export default Sidebar;

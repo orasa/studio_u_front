@@ -11,7 +11,12 @@ class Category extends Component {
 	//Render
 	render() {
 		return(
-			 <li>{this.state.category.id}# {this.state.category.name}</li>
+			<div>
+				<span>
+
+				 <a className="categoryBtn btn btn-info mr-5 bg-light" href="#" role="button"><li>{this.state.category.name}</li></a>
+		     </span>
+		 </div>
 
 		)
 	}

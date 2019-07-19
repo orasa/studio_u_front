@@ -5,6 +5,7 @@ import './App.css';
 import Sidebar from './Sidebar'
 import Content from './Content'
 
+
 class App extends Component {
 
 
@@ -23,10 +24,12 @@ class App extends Component {
 
 				<div id="header" className="row bg-light">
 					<div id="main" className="row p-p1 ">
+
 						{/* import a childe Componnet Sidebar, Content to render here*/}
 
           	<Sidebar />
 						<Content />
+
   				</div>
 				</div>
 			</div>

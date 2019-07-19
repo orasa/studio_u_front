@@ -52,9 +52,6 @@
     margin-left: 20px;
   }
 
-
-
-
 #main {
   background-color: #F5F5F5;
     height: 100vh;
@@ -72,10 +69,24 @@
   padding: 25px;
   width: 300px;
   border-radius: 10px;
+}
+/* .category  {
+  width: 150px;
+  height: 150px;
+  madding: 10px;
+  margin: 10px;
+} */
+
+
+.sidebarUl {
+margin-bottom: 100px;
+}
+.categoryBtn {
+  margin: 10px;
+  padding: 20px;
 
 }
-
-
+/* sidebar list and signUp Login text */
 li {
   list-style: none;
   color: 	#4682B4;
@@ -91,6 +102,16 @@ li {
   margin-top: 20px;
   border-radius: 5px;
 
+}
+/* render on main section of Home content page */
+.choice {
+  width: 200px;
+  height: 150px;
+  madding: 10px;
+  margin: 10px;
+
+}
+.subject {
 
 }
 .d-flex {
@@ -98,9 +119,8 @@ li {
   margin: 10px;
   border-radius: 5px;
   background-color: #ADD8E6;
-
 }
-#videoBox  {
+#video  {
   padding-left: 5px;
   margin-left: 5px;
   margin-top: 30px;
