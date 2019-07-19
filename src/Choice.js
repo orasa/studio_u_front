@@ -11,19 +11,20 @@ class Choice extends Component {
 	//Render
 	render() {
 		return(
-			<div>
-				<span>
-				<button className="choice bg-info">
-					<div className="subject col bg-light mr-2 p-5">
-					<li>{this.state.choice.name}</li>
-					</div>
-				</button>
-		    </span>
-	    </div>
+
+			 <div className="choice d-flex flex-row bd-highlight mb-3 bg-warning">
+				<div className="col p-1  bg-primary p-1 mr-1">
+			    <div className="col p-1  bg-secondary p-1 mr-1">
+					  <li>{this.state.choice.name}</li>
+				  </div>
+			  </div>
+		 </div>
 
 
 		)
 	}
 }
+
+
 
 export default Choice

@@ -44,16 +44,16 @@ class Content extends Component {
 	render() {
 		return (
 
-       <div id="Content" className="col-9 ">
+       <div id="Content" className="col-9 bg-light">
 
-					<div className="col bg-light mr-2 p-5 bg-dark">
 						{
  						this.state.choices.map((c) => {
  							return <Choice choice={c} key={c.id}/>
  						})
  					}
-					 </div>
-			 </div>
+					</div>
+
+
 		)
 	}
 }
