@@ -12,14 +12,9 @@ class Choice extends Component {
 	render() {
 		return(
 
-			 <div className="choice d-flex flex-row bd-highlight mb-3 bg-warning">
-				<div className="col p-1  bg-primary p-1 mr-1">
-			    <div className="col p-1  bg-secondary p-1 mr-1">
-					  <li>{this.state.choice.name}</li>
-				  </div>
-			  </div>
-		 </div>
-
+           <div className="choice">
+           {this.state.choice.name}
+			 	  </div>
 
 		)
 	}

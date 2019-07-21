@@ -33,6 +33,18 @@ class Content extends Component {
 		 {
 			 id: 6,
 			 name: "Angular"
+		 },
+		 {
+			 id: 4,
+			 name: "HTML5 & Bootstraps"
+		 },
+		 {
+			 id: 5,
+			 name: "MongoDB"
+		 },
+		 {
+			 id: 6,
+			 name: "Angular"
 		 }
 		]
 	 }
@@ -44,7 +56,7 @@ class Content extends Component {
 	render() {
 		return (
 
-       <div id="Content" className="col-9 bg-light">
+       <div id="Content" >
 
 						{
  						this.state.choices.map((c) => {
