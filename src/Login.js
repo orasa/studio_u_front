@@ -33,6 +33,7 @@ class Login extends Component {
 				this.props.auth()
 				console.log( 'Hello again')
 			}
+			window.location = '/'
 		}).catch((err) => {
 			console.log('err', err)
 		})

@@ -27,8 +27,10 @@ class Signup extends Component {
 		e.preventDefault()
 
 		axios.post('http://localhost:4000/api/signup', this.state).then((res) => {
+			console.log('res', res);
 			localStorage.setItem('token', res.data.token)
-
+			// redirect to App
+			window.location = '/'
 		}).catch((err) => {
 			console.log('err', err)
 		})

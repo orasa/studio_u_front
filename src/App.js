@@ -29,8 +29,10 @@ class App extends Component {
 					<p className="title text-left">Studio Unicorns</p>
 					<p className="title text-left">'To Code is to be, to be is to Code'.</p>
 					<nav className="button text-right ">
-						<Link to="/Signup">Signup</Link>
-						<Link to="/Login>">Login</Link>
+						<Link to="/Signup"><button className="Signup">Signup</button></Link>
+
+						<Link to="/Login"><button className="Login">Login</button></Link>
+
 					</nav>
 				</div>
 
