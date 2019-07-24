@@ -1,0 +1,28 @@
+#container {
+	display: grid;
+	grid-template-columns: 200px auto;
+}
+
+#videoBox {
+
+	padding-top: 90px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 40px;
+	grid-row-gap: 40px;
+}
+
+.link {
+	background-color: #f6f6f6;
+	position: relative;
+	border-radius: 4px;
+	min-height: 250px;
+}
+
+.subject_img {
+	background-color: #f6f6f6;
+	background-size: auto 90% ;
+	background-repeat: no-repeat;
+	background-position: center 15px;
+	height: 200px;
+}

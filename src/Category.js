@@ -14,7 +14,9 @@ class Category extends Component {
 			<div>
 				<span>
 
-				 <a className="categoryBtn btn btn-info mr-5 bg-light" href="#" role="button"><li>{this.state.category.name}</li></a>
+				 <a className="categoryButton btn-info mr-2" href="#" role="button">
+					  <li className={ this.state.category.active ? 'active' : '' } onClick={() => this.props.selectCategory(this.state.category._id)}># {this.state.category.name}</li>
+				</a>
 		     </span>
 		 </div>
 

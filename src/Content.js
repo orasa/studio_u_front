@@ -2,71 +2,59 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Iframe from 'react-iframe'
-
-import Choice from './Choice'
+import axios from 'axios'
+import Video from './Video'
 
 
 class Content extends Component {
-
+//Data
 	state = {
 
-		 choices: [{
-			 id: 1,
-			 name: "Node.js"
-		 },
-		 {
-			 id: 2,
-			 name: "Express.js"
-		 },
-		 {
-			 id: 3,
-			 name: "React"
-		 },
-		 {
-			 id: 4,
-			 name: "HTML5 & Bootstraps"
-		 },
-		 {
-			 id: 5,
-			 name: "MongoDB"
-		 },
-		 {
-			 id: 6,
-			 name: "Angular"
-		 },
-		 {
-			 id: 4,
-			 name: "HTML5 & Bootstraps"
-		 },
-		 {
-			 id: 5,
-			 name: "MongoDB"
-		 },
-		 {
-			 id: 6,
-			 name: "Angular"
-		 }
-		]
+		 videos: []
 	 }
+	 //Fuctions
+	 componentWillMount() {
+		axios.get('http://localhost:4000/api/video').then((res) => {
+			this.setState({
+				videos: res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
+	componentWillReceiveProps(props) {
+		axios.get(`http://localhost:4000/api/video?category=${props.category}`).then((res) => {
+			this.setState({
+				videos: res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
 
-	//Data
+
+	createVideo = (e, text) => {
+		e.preventDefault()
+		let choice = {
+		}
+	}
+
 
 
 	//Render
 	render() {
 		return (
-
-       <div id="Content" >
-
-						{
- 						this.state.choices.map((c) => {
- 							return <Choice choice={c} key={c.id}/>
- 						})
- 					}
+			<div id="Content" className="col-9 ">
+				 <div className="col bg-light mr-2 p-5">
+					 {
+					 this.state.videos.map((vid) => {
+						 return <Video video={vid} key={vid._id}/>
+					 })
+				 }
 					</div>
-
-
-		)
+			</div>
+       
+   	)
 	}
 }
 

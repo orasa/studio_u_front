@@ -21,5 +21,4 @@ class Choice extends Component {
 }
 
 
-
 export default Choice
