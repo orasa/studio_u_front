@@ -3,60 +3,55 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Iframe from 'react-iframe'
 import Video from './Video'
+import NewVideo from './NewVideo'
+import axios from 'axios'
 
 
 class VideosHub extends Component {
 
-	state = {
 
-		 videos: [{
-			 id: 3,
-			 description: 'My Favorite Tutorials',
-			 link: 'https://www.youtube.com/embed/kHV7gOHvNdk',
-			 category: "id",
-			 likes: "number",
-			 date: Date.now,
-			 user: "id",
-			 fans: ["id", "id", "id"]
-		 },
-		 {
-			 id: 3,
-			 description: '',
-			 link: 'https://www.youtube.com/embed/kHV7gOHvNdk',
-			 category: "id",
-			 likes: "number",
-			 date: Date.now,
-			 user: "id",
-			 fans: ["id", "id", "id"]
-		 },
-		 {
-			 id: 3,
-			 description: '',
-			 link: 'https://www.youtube.com/embed/kHV7gOHvNdk',
-			 category: "id",
-			 likes: "number",
-			 date: Date.now,
-			 user: "id",
-			 fans: ["id", "id", "id"]
-		 }
-		]
+		state = {
+
+			videos: []
+		}
+		//Fuctions
+		componentWillMount() {
+		 axios.get('http://localhost:4000/api/video').then((res) => {
+			 this.setState({
+				 videos: res.data
+			 })
+		 }).catch((err) => {
+			 console.log('err', err)
+		 })
+	 }
+	 componentWillReceiveProps(props) {
+		 axios.get(`http://localhost:4000/api/video?category=${props.category}`).then((res) => {
+			 this.setState({
+				 videos: res.data
+			 })
+		 }).catch((err) => {
+			 console.log('err', err)
+		 })
 	 }
 
 
-
-	//Data
-
+	 createVideo = (e, text) => {
+		 e.preventDefault()
+		 let video = {
+		 }
+	 }
 
 
 	//Render
 	render() {
 		return (
 
-       <div id="Content" className="col-9 ">
+       <div id="VideosHub" className="col-9 ">
+				 <NewVideo createVideo={this.createVideo}/>
 					<div className="col bg-light mr-2 p-5">
 						{
  						this.state.videos.map((vid) => {
- 							return <Video video={vid} key={vid.id}/>
+ 							return <Video video={vid} key={vid._id}/>
  						})
  					}
 					 </div>
