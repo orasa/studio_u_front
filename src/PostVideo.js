@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Category from './Category'
+// import Category from './Category'
 
 class PostVideo extends Component {
 
@@ -46,6 +46,8 @@ class PostVideo extends Component {
 
 
 	// create video onSubmit and Onchange
+	// for select category dropdown menu map through the list of
+	// for each one, return <option>name of category</option>
 
 	// Render
 	render() {
@@ -75,9 +77,6 @@ class PostVideo extends Component {
 
 
 
-							 // map through the list of this.state.categories
-
-							 // for each one, return <option>name of category</option>
 			      </select>
 			    </div>
 

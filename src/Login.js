@@ -21,6 +21,7 @@ class Login extends Component {
 	login = (e) => {
 		e.preventDefault()
 		axios.post('http://localhost:4000/api/login', this.state).then((res) => {
+			console.log('Test res.data.token', res.data.token);
 			if (!res.data.token) {
 				this.setState({
 					error: res.data

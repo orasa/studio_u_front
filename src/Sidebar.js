@@ -12,18 +12,22 @@ class Sidebar extends Component {
 		categories: []
 	}
 
-	// Lifecycle
+	// Lifecycle use componentDidmount
+
 	componentWillMount() {
 		axios.get('http://localhost:4000/api/category').then((res) => {
+			res.data[0].active = true
 			this.setState({
 				categories: res.data
 			})
+			this.selectCategory(res.data[0]._id)
+			console.log('res.data[0], res.data[0]');
 		}).catch((err) => {
 			console.log('err', err)
 		})
 	}
 
-		//fuctions
+		//functions
 		selectCategory = (id) => {
 			let categories = this.state.categories
 			categories.forEach((c) => delete c.active)
@@ -32,7 +36,6 @@ class Sidebar extends Component {
 			this.setState({categories})
 			this.props.getVideos(id)
 	}
-
 
 
 	//Render
@@ -48,12 +51,11 @@ class Sidebar extends Component {
 						selectCategory={this.selectCategory} />
 						})
 					}
-
 					 </div>
 				 </div>
-		);
+		)
 	}
 }
 
 
-export default Sidebar;
+export default Sidebar

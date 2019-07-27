@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Iframe from 'react-iframe'
+import iframe from 'react-iframe'
 
 
 class Video extends Component {
@@ -17,10 +17,11 @@ class Video extends Component {
 		   <li>
 				  {this.state.video.description}
 					 <div className="col bg-light mr-2 p-5">
-						<iframe width="100" height="100" src={this.state.video.link} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowsFullScreen></iframe>
+						<iframe width="100" height="100" src={`https://www.youtube.com/embed/${this.state.video.link}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowsfullscreen="true"></iframe>
 					</div>
 			 </li>
 		</div>
+
 
 		)
 	}

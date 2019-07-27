@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Signup from './Signup'
 import Login from './Login'
 import App from './App'
+import PostVideo from './PostVideo'
 
 class Routes extends Component {
 	// Data
@@ -15,7 +16,8 @@ class Routes extends Component {
 				<Switch>
 					<Route path="/signup" component={Signup} />
           <Route path ="/login" component={Login} />
-          <Route path="/" component={App} />
+          <Route path="/PostVideo" component={PostVideo} />
+					<Route path="/" component={App} />
 				</Switch>
 			</BrowserRouter>
 		)
