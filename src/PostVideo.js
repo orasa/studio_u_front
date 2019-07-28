@@ -1,93 +1,124 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-// import Category from './Category'
+import Category from './Category'
 
 class PostVideo extends Component {
 
 	// Data
-	state = {
-		link: '',
-		category: '',
-		description: '',
-		categories: []
-	}
+	state= {
+    link: '',
+    category: '',
+    description: '',
+    links: [],
+    categories: []
+  }
 
-	//Functions
-	//create Change Input function
-	//call it on the render on form onChange and pass argument; the input we need
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault()
+    console.log('this.state onSubmit', this.state);
+    this.setState({
+      link: '',
+      category: '',
+      description: ''
+    })
+  }
+
+  createVideoPost = (e) => {
+    let data =  {
+        link: this.state.link,
+        category: this.state.category,
+        description: this.state.description
+      }
+      //4444444
+      axios.post('http://localhost:4000/api/video', data,
+          {headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }).then((res) => {
+          let videos = this.state.links
+          videos.push(res.data)
+          console.log('axious respons data',res.data);
+          this.setState({videos})
+        }).catch((err) => {
+          console.log('err axios post', err)
+        })
+  }
 
 
-	ChangeInput = (e, text) => {
-		this.setState({[text]: e.target.value}, () => {
-			console.log('state', this.state)
-		})
-	}
+  componentWillMount() {
+    axios.get('http://localhost:4000/api/videos').then((res) => {
+      this.setState({
+        links: res.data
+      })
+    }).catch((err) => {
+      console.log('err', err)
+    })
+    //axious get categories
+    axios.get('http://localhost:4000/api/category').then((res) => {
+      this.setState({
+        categories: res.data
+      })
+      console.log('res.data from axios get category', res.data);
+    }).catch((err) => {
+      console.log('err', err)
+    })
+    //
+  }
 
-	clearMessage = () => {
-		this.setState({
-			text: ''
-		})
-	}
+  print =() => {
+    console.log('this.state', this.state);
+  }
 
-	// get categories from server
-	// then, inject categores into this.state.categories
-
-		componentWillMount() {
-			axios.get('http://localhost:4000/api/category').then((res) => {
-				this.setState({
-					categories: res.data,
-
-				})
-			}).catch((err) => {
-				console.log('err', err)
-			})
-		}
-
-
-
-	// create video onSubmit and Onchange
-	// for select category dropdown menu map through the list of
-	// for each one, return <option>name of category</option>
-
-	// Render
 	render() {
 		return (
+			<div className="mt-5">
+        {/*<form>*/}
+        	<div className="card w-50 m-auto p-4">
 
-		<div className="row">
+            <label>Link</label>
+            <input type="text"
+              name="link"
+              value={this.state.link}
+              onChange={(e) => this.handleChange(e)}
+              className="form-control"
+               />
 
-			 <form onSubmit={(e, text) => {
-						this.props.createVideo(e, text)}
-					}>
+     <div className="form-group" >
+       <label >Choose Category</label>
+       <select name="category"
+          value={this.state.category}
+          onChange={(e) => this.handleChange(e)}
+          className="form-control" >
+         {
+           this.state.categories.map((c) => {
+             return(<option value={c._id} key={c._id}>{c.name}</option>)
+           })
+         }
 
+       </select>
 
-    <div className="form-group">
-			      <label htmlFor="link">Add Youtube Video Url id:</label>
-			      <input type="text" className="form-control" id="url_id" value={this.state.link} onChange={(e, text) => this.ChangeInput(e, 'link')} />
-			    </div>
+     </div>
 
-			    <div className="form-group">
-			      <label htmlFor="category">Select(select one):</label>
-			       <select className="form-control" id="category"value={this.state.category} onChange={(e, text
-							 ) => this.ChangeInput(e, 'category')} >
-							 {
-								this.state.categories.map((c) => {
-									return (<option key={c._id}>{c.name}</option>)
-								})
-							}
+               <label>Description</label>
+                <input type="text"
+                  name="description"
+                  value={this.state.description}
+                  onChange={(e, text) => this.handleChange(e)}
+                  className="form-control "
+                   />
+                 <button onClick={(e => {this.onSubmit(e);this.createVideoPost(e) })} type="submit" className="btn btn-info mt-4">Submit</button>
+			  </div>
+       {/*</form>*/}
+    </div>
+		)
+	}
 
-
-
-			      </select>
-			    </div>
-
-			    <div className="form-group">
-					  <label htmlFor="description">Description:</label>
-					  <textarea className="form-control" rows="5" id="description" value={this.state.description} onChange={(e, text) => this.ChangeInput(e, 'description')}></textarea>
-			    </div>
-		 	     <button type="submit" className="btn btn-default">Submit</button>
-	     </form>
-	  </div>
-	)}
 }
 
 
