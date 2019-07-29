@@ -1,0 +1,170 @@
+.wrap {
+   height: auto;
+   width: 100vw;
+   background-color: 	#fafafa;
+   padding: 20px;
+   margin-top: 0;
+
+ }
+ nav.button {
+   width: auto;
+   height:50px;
+   position: relative;
+   left: 300px;
+   padding: 5px;
+
+ }
+
+ .button {
+   width: 200px;
+   /* background-color: #B0E0E6; */
+
+ }
+ #header {
+  height: 300px;
+  width: 100vw;
+  background-image: url("samui.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top: 1%;
+    }
+
+  div.title {
+    width: 100vw;
+    margin: 0;
+
+  }
+  .appName {
+    font-size: 35px;
+    margin-left: 20px;
+  }
+  .title {
+    height: 5%;
+    width: 50%;
+    margin:  10px;
+    padding: 0px;
+
+    position: relative;
+    left: 50%;
+    font-size: 25px;
+    color: 	tomato;
+
+  }
+  p.title {
+    margin-left: 20px;
+  }
+
+/* #main {
+  background-color: red;
+    height: auto;
+    width: 100vw;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
+    margin-top: 0;
+
+  }
+  */
+
+#main > div {
+  display:flex;
+  flex-wrap: wrap;
+  /* width:100vw; */
+}
+
+#sidebar {
+  background-color: 	tomato;
+  margin: 20px 10px 10px 20px;
+  padding: 25px;
+  width: 300px;
+  border-radius: 10px;
+}
+/* ul for display category  */
+ul {
+  background-color:red;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  top: 10px;
+}
+
+
+.sidebarUl {
+margin-bottom: 100px;
+}
+.categoryBtn {
+  margin: 10px;
+  padding: 20px;
+
+}
+/* sidebar list and signUp Login text */
+li {
+  background-color: white;
+  list-style: none;
+  color: 	white;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  top: 15px;
+
+}
+.pickBy {
+  /* background: white; */
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  postion: relative;
+  right: 200px;
+  width:120px;
+  margin: 5px 10px 5px 5px;
+  padding: 5px 5px 0px 5px;
+  border-radius: 5px;
+}
+.span {
+  height: 40px;
+  width: 120px;
+  /* background-color: black; */
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 5px;
+  position: relative;
+  bottom: 15px;
+}
+
+#VideosHub  {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+  margin-top: 50px;
+  padding: 20px;
+  align-items: flex-start;
+  border-radius:20px;
+}
+
+#videosRender  {
+  margin: 50px;
+}
+#video  {
+  padding-left: 5px;
+  margin-left: 5px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+.postVideo {
+  font-size: 20px;
+  color: white;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: tomato;
+  position: relative;
+  left:  750px;
+}
+.card{
+  width: 18rem!important;
+}

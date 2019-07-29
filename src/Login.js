@@ -35,6 +35,7 @@ class Login extends Component {
 				console.log( 'Hello again')
 			}
 			window.location = '/'
+			console.log( 'Hello again')
 		}).catch((err) => {
 			console.log('err', err)
 		})
