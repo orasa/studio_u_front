@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Signup from './Signup';
+import Login from './Login';
 
 class NavBar extends Component {
 	// Data
-	state = {};
+	state = {
+		// name: '',
+		// email: '',
+		// password: '',
+		// error: ''
+	};
 	// Functions
+	changeName = e => {
+		this.setState({ name: e.target.value });
+	};
 
 	changeEmail = e => {
 		this.setState({ email: e.target.value });
@@ -95,47 +104,47 @@ class NavBar extends Component {
 									{/*signup modal*/}
 									<button
 										type="button"
-										class="btn btn-primary"
+										className="btn btn-primary"
 										data-toggle="modal"
 										data-target="#signup"
 									>
 										Sign Up
 									</button>
 									<div
-										class="modal fade"
+										className="modal fade"
 										id="signup"
-										tabindex="-1"
+										tabIndex="-1"
 										role="dialog"
 										aria-labelledby="exampleModalLabel"
 										aria-hidden="true"
 									>
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">
+										<div className="modal-dialog" role="document">
+											<div className="modal-content">
+												<div className="modal-header">
+													<h5 className="modal-title" id="exampleModalLabel">
 														Signup
 													</h5>
 													<button
 														type="button"
-														class="close"
+														className="close"
 														data-dismiss="modal"
 														aria-label="Close"
 													>
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<div class="modal-body">
-													<Signup signup={this.props.signup} />
+												<div className="modal-body">
+													<Signup signup={this.signup} />
 												</div>
-												<div class="modal-footer">
+												<div className="modal-footer">
 													<button
 														type="button"
-														class="btn btn-secondary"
+														className="btn btn-secondary"
 														data-dismiss="modal"
 													>
 														Close
 													</button>
-													<button type="button" class="btn btn-primary">
+													<button type="button" className="btn btn-primary">
 														Save changes
 													</button>
 												</div>
@@ -143,12 +152,63 @@ class NavBar extends Component {
 										</div>
 									</div>
 
-									{/*end modal*/}
+									{/*end Singup modal*/}
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#">
-									Log In
+									{/*Modal login with form*/}
+									<button
+										type="button"
+										className="btn btn-primary"
+										data-toggle="modal"
+										data-target="#login"
+									>
+										Log In
+									</button>
+									<div
+										className="modal fade"
+										id="login"
+										tabIndex="-1"
+										role="dialog"
+										aria-labelledby="exampleModalLabel"
+										aria-hidden="true"
+									>
+										<div className="modal-dialog" role="document">
+											<div className="modal-content">
+												<div className="modal-header">
+													<h5 className="modal-title" id="exampleModalLabel">
+														Log In
+													</h5>
+													<button
+														type="button"
+														className="close"
+														data-dismiss="modal"
+														aria-label="Close"
+													>
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div className="modal-body">
+													<Login login={this.login} />
+												</div>
+												<div className="modal-footer">
+													<button
+														type="button"
+														className="btn btn-secondary"
+														data-dismiss="modal"
+													>
+														Close
+													</button>
+													<button type="button" className="btn btn-primary">
+														Save changes
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									{/*end modal login*/}
 								</a>
 							</li>
 							<li className="nav-item">
