@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 class Signup extends Component {
 	// Data
 	state = {
+		// signup: this.props.signup
 		name: '',
 		email: '',
 		password: ''
@@ -30,7 +31,7 @@ class Signup extends Component {
 				<div className="col-4 offset-4">
 					<div className="card signup">
 						<div className="card-body">
-							<form onSubmit={e => this.signup(e)}>
+							<form onSubmit={e => this.props.signup(e)}>
 								<div className="form-group">
 									<input
 										type="text"
