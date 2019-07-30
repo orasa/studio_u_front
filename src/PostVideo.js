@@ -8,7 +8,6 @@ class PostVideo extends Component {
 		link: '',
 		category: '',
 		description: '',
-		links: [],
 		categories: []
 	};
 
@@ -18,51 +17,7 @@ class PostVideo extends Component {
 		});
 	};
 
-	onSubmit = e => {
-		e.preventDefault();
-		console.log('this.state onSubmit', this.state);
-		this.setState({
-			link: '',
-			category: '',
-			description: ''
-		});
-	};
-
-	createVideoPost = e => {
-		let data = {
-			link: this.state.link,
-			category: this.state.category,
-			description: this.state.description
-		};
-		axios
-			.post('http://localhost:4000/api/video', data, {
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`
-				}
-			})
-			.then(res => {
-				let videos = this.state.links;
-				videos.push(res.data);
-				console.log('axious respons data', res.data);
-				this.setState({ videos });
-			})
-			.catch(err => {
-				console.log('err axios post', err);
-			});
-	};
-
 	componentWillMount() {
-		axios
-			.get('http://localhost:4000/api/videos')
-			.then(res => {
-				this.setState({
-					links: res.data
-				});
-			})
-			.catch(err => {
-				console.log('err', err);
-			});
-		//axious get categories
 		axios
 			.get('http://localhost:4000/api/category')
 			.then(res => {
@@ -77,42 +32,40 @@ class PostVideo extends Component {
 		//
 	}
 
-	print = () => {
-		console.log('this.state', this.state);
-	};
-
 	render() {
 		return (
 			<div
-				class="modal fade"
+				className="modal fade"
 				id="newVideo"
-				tabindex="-1"
+				tabIndex="-1"
 				role="dialog"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
 			>
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<form onSubmit={this.createVideoPost()}>
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						{/* createVideoPost is in App.js */}
+
+						<form onSubmit={this.props.createVideoPost(this.state)}>
+							<div className="modal-header">
+								<h5 className="modal-title" id="exampleModalLabel">
 									Post Video
 								</h5>
 								<button
 									type="button"
-									class="close"
+									className="close"
 									data-dismiss="modal"
-									aria-label="Close"
-								>
+									aria-label="Close"	>
+
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<div class="modal-body">
+							<div className="modal-body">
 								<div className="form-group">
 									<label>Link</label>
 									<div className="input-group">
-										<div class="input-group-prepend">
-											<span class="input-group-text" id="basic-addon3">
+										<div className="input-group-prepend">
+											<span className="input-group-text" id="basic-addon3">
 												https://youtu.be/
 											</span>
 										</div>
@@ -155,15 +108,15 @@ class PostVideo extends Component {
 									/>
 								</div>
 							</div>
-							<div class="modal-footer">
+							<div className="modal-footer">
 								<button
 									type="button"
-									class="btn btn-secondary"
+									className="btn btn-secondary"
 									data-dismiss="modal"
 								>
 									Close
 								</button>
-								<button type="submit" class="btn btn-primary">
+								<button type="submit" className="btn btn-primary">
 									Submit
 								</button>
 							</div>
