@@ -35,6 +35,7 @@ class Sidebar extends Component {
 			category.active = true
 			this.setState({categories})
 			this.props.getVideos(id)
+
 	}
 
 
@@ -42,7 +43,29 @@ class Sidebar extends Component {
 	render() {
 		return (
 
-			<div id="sidebar" className="col-2 p-2 m-2">
+			<div className="list-group m-3">
+				  <button type="button" className="list-group-item list-group-item-action active">
+				    Pick cateory
+				  </button>
+				  <button type="button" className="list-group-item list-group-item-action">
+						{
+					   this.state.categories.map((c) => {
+						 return <Category category={c} key={c._id}
+					   selectCategory={this.selectCategory} />
+				     }) 
+					  }
+					</ button>
+				  {/* <button type="button" className="list-group-item list-group-item-action">Mobile Applications
+					</button>
+				  <button type="button" className="list-group-item list-group-item-action">Database
+					</button>
+				  <button type="button" className="list-group-item list-group-item-action" >User Interface
+					</button>*/}
+			</div>
+
+ )
+
+		  {/*	<div id="sidebar" className="col-2 p-2 m-2">
 					 <h4>{this.state.sidebarName}</h4>
 					 <div className="sidebarUl">
 					 {
@@ -52,8 +75,8 @@ class Sidebar extends Component {
 						})
 					}
 					 </div>
-				 </div>
-		)
+				 </div>*/}
+
 	}
 }
 

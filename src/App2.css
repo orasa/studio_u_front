@@ -57,7 +57,7 @@
   }
 
 #main {
-  background-color: black#fafafa;
+  background-color: #4682B4;
     height: 100vh;
     width: 100vw;
     border-radius: 10px;
@@ -65,22 +65,31 @@
     top: 50px;
     margin-top: 0;
     display: flex;
-		border: solid 2px;
 
   }
 #sidebar {
-  background-color: #E0E0E0;
+  background-color: 	#FFF5EE;
   margin: 20px 10px 10px 20px;
   padding: 25px;
-  width: 350px;
+  width: 300px;
   border-radius: 10px;
 }
+/* .category  {
+  width: 150px;
+  height: 150px;
+  madding: 10px;
+  margin: 10px;
+} */
 
 
 .sidebarUl {
 margin-bottom: 100px;
 }
+.categoryBtn {
+  margin: 10px;
+  padding: 20px;
 
+}
 /* sidebar list and signUp Login text */
 li {
   list-style: none;
@@ -100,9 +109,37 @@ li {
   padding: 20px;
   align-items: flex-start;
   border-radius: 10px;
+
 }
 
+/* render on main section of Home content page */
 
+.choice {
+  display: flex;
+  width:200px;
+  height: 150px;
+  padding: 10px;
+  margin: 10px;
+  color: red;
+  background-color: #f1f1f1;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  boder-radius: 10px;
+
+}
+.subject {
+
+}
+.d-flex {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #ADD8E6;
+}
+#videosRender  {
+  margin: 50px;
+}
 #video  {
   padding-left: 5px;
   margin-left: 5px;
