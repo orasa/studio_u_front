@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import Routes from './Routes'
 import * as serviceWorker from './serviceWorker';
- // import App2 from './App2'
-import App from './Test3'
+// import App2 from './App2'
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
