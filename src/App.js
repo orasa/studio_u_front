@@ -8,6 +8,7 @@ import Sidebar from './Sidebar';
 import VideosHub from './VideosHub';
 import PostVideo from './PostVideo';
 import NavBar from './NavBar';
+import Profile from './Profile';
 
 class App extends Component {
 	//data
@@ -23,23 +24,30 @@ class App extends Component {
 		});
 	};
 
-	createVideoPost = data => {
-		console.log('data in App', data);
-		axios
-			.post('http://localhost:4000/api/video', data, {
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`
-				}
-			})
-			.then(res => {
-				let videos = this.state.videos;
-				videos.unshift(res.data);
-				console.log('axious respons data', res.data);
-				this.setState({ videos });
-			})
-			.catch(err => {
-				console.log('err axios post', err);
-			});
+	createVideoPost = (e, data) => {
+		e.preventDefault()
+		let token = localStorage.getItem('token')
+		if (token) {
+			console.log('data in App', data);
+			axios
+				.post('http://localhost:4000/api/video', data, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`
+					}
+				})
+				.then(res => {
+					let videos = this.state.videos;
+					videos.unshift(res.data);
+					console.log('createVideoPost res', res);
+					this.setState({ videos });
+				})
+				.catch(err => {
+					console.log('err axios post', err);
+				});
+			} else {
+				console.log('NO');
+				window.location = '/login'
+			}
 	};
 
 	//Render
@@ -47,6 +55,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="wrap">
+				<Profile />
 				<PostVideo createVideoPost={this.createVideoPost} />
 				<div id="title" className="row p-3">
 					<p className="title text-left">Studio Unicorns</p>
