@@ -19,7 +19,7 @@ class PostVideo extends Component {
 
 	componentWillMount() {
 		axios
-			.get('http://localhost:4000/api/category')
+			.get('http://localhost:4000/api/categories')
 			.then(res => {
 				this.setState({
 					categories: res.data
@@ -55,8 +55,8 @@ class PostVideo extends Component {
 									type="button"
 									className="close"
 									data-dismiss="modal"
-									aria-label="Close"	>
-
+									aria-label="Close"
+								>
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
