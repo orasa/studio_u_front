@@ -4,13 +4,12 @@ import axios from 'axios';
 class Login extends Component {
 	// Data
 	state = {
-		// login: this.props.login
 		email: '',
 		password: '',
 		error: ''
 	};
-	// Functions
 
+	// Functions
 	changeEmail = e => {
 		this.setState({ email: e.target.value });
 	};
@@ -19,31 +18,31 @@ class Login extends Component {
 		this.setState({ password: e.target.value });
 	};
 
-	// login = e => {
-	// 	e.preventDefault();
-	// 	axios
-	// 		.post('http://localhost:4000/api/login', this.state)
-	// 		.then(res => {
-	// 			console.log('Test res.data.token', res.data.token);
-	// 			if (!res.data.token) {
-	// 				this.setState({
-	// 					error: res.data
-	// 				});
-	// 			} else {
-	// 				this.setState({
-	// 					error: ''
-	// 				});
-	// 				localStorage.setItem('token', res.data.token);
-	// 				this.props.auth();
-	// 				console.log('Hello again');
-	// 			}
-	// 			window.location = '/';
-	// 			console.log('Hello again');
-	// 		})
-	// 		.catch(err => {
-	// 			console.log('err', err);
-	// 		});
-	// };
+	login = e => {
+		e.preventDefault();
+		axios
+			.post('http://localhost:4000/api/login', this.state)
+			.then(res => {
+				console.log('Test res.data.token', res.data.token);
+				if (!res.data.token) {
+					this.setState({
+						error: res.data
+					});
+				} else {
+					this.setState({
+						error: ''
+					});
+					localStorage.setItem('token', res.data.token);
+					// this.props.auth();
+					console.log('Hello again');
+					//redirect to homepage
+					window.location = '/';
+				}
+			})
+			.catch(err => {
+				console.log('err', err);
+			});
+	};
 
 	// Render
 	render() {

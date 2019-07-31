@@ -6,11 +6,11 @@ import NavBar from './NavBar';
 class Signup extends Component {
 	// Data
 	state = {
-		// signup: this.props.signup
 		name: '',
 		email: '',
 		password: ''
 	};
+
 	// Functions
 	changeName = e => {
 		this.setState({ name: e.target.value });
@@ -24,6 +24,31 @@ class Signup extends Component {
 		this.setState({ password: e.target.value });
 	};
 
+	signup = e => {
+		e.preventDefault();
+		axios
+			.post('http://localhost:4000/api/signup', this.state)
+			.then(res => {
+				console.log('Test res.data.token', res.data.token);
+				if (!res.data.token) {
+					this.setState({
+						error: res.data
+					});
+				} else {
+					this.setState({
+						error: ''
+					});
+					localStorage.setItem('token', res.data.token);
+					// this.props.auth();
+					console.log('Hello again');
+					window.location = '/';
+				}
+			})
+			.catch(err => {
+				console.log('err', err);
+			});
+	};
+
 	// Render
 	render() {
 		return (
@@ -31,7 +56,7 @@ class Signup extends Component {
 				<div className="col-4 offset-4">
 					<div className="card signup">
 						<div className="card-body">
-							<form onSubmit={e => this.props.signup(e)}>
+							<form onSubmit={e => this.signup(e)}>
 								<div className="form-group">
 									<input
 										type="text"

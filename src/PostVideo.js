@@ -46,7 +46,7 @@ class PostVideo extends Component {
 					<div className="modal-content">
 						{/* createVideoPost is in App.js */}
 
-						<form onSubmit={() => this.props.createVideoPost(this.state)}>
+						<form onSubmit={(e) => this.props.createVideoPost(e, this.state)}>
 							<div className="modal-header">
 								<h5 className="modal-title" id="exampleModalLabel">
 									Post Video
