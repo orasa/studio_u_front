@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
+import Signout from './Login';
+import Profile from './Profile'
+
 
 class NavBar extends Component {
 	// Data
@@ -11,68 +13,15 @@ class NavBar extends Component {
 		// password: '',
 		// error: ''
 	};
-	// Functions
-	changeName = e => {
-		this.setState({ name: e.target.value });
-	};
 
-	changeEmail = e => {
-		this.setState({ email: e.target.value });
-	};
-
-	changePassword = e => {
-		this.setState({ password: e.target.value });
-	};
-
-	login = e => {
-		e.preventDefault();
-		axios
-			.post('http://localhost:4000/api/login', this.state)
-			.then(res => {
-				console.log('Test res.data.token', res.data.token);
-				if (!res.data.token) {
-					this.setState({
-						error: res.data
-					});
-				} else {
-					this.setState({
-						error: ''
-					});
-					localStorage.setItem('token', res.data.token);
-					this.props.auth();
-					console.log('Hello again');
-				}
-				window.location = '/';
-				console.log('Hello again');
-			})
-			.catch(err => {
-				console.log('err', err);
-			});
-	};
-
-	signup = e => {
-		e.preventDefault();
-
-		axios
-			.post('http://localhost:4000/api/signup', this.state)
-			.then(res => {
-				console.log('res', res);
-				localStorage.setItem('token', res.data.token);
-				// redirect to App
-				window.location = '/';
-			})
-			.catch(err => {
-				console.log('err', err);
-			});
-	};
 
 	// Render
 	render() {
 		return (
 			<div>
-				<nav className="navbar navbar-expand-lg bg-secondary">
-					<a className="navbar-brand" href="#">
-						Studio Unicorns
+				<nav className="navbar navbar-expand-lg bg-light">
+					<a className="navbar-brand mb-1 p-3 bg-light" href="#">
+						<h2>Studio Unicorns</h2>
 					</a>
 					<button
 						className="navbar-toggler"
@@ -90,13 +39,28 @@ class NavBar extends Component {
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item active">
 								<a className="nav-link" href="#">
-									Home <span className="sr-only">(current)</span>
+									<button
+										type="button"
+										className="btn btn-outline-primary"
+										data-toggle="modal"
+										data-target="#about"
+									>
+										Home
+									</button>
 								</a>
 							</li>
 
 							<li className="nav-item">
 								<a className="nav-link" href="#">
-									About
+									<button
+										type="button"
+										className="btn btn-outline-primary"
+										data-toggle="modal"
+										data-target="#about"
+									>
+										About
+									</button>
+
 								</a>
 							</li>
 							<li className="nav-item">
@@ -104,7 +68,7 @@ class NavBar extends Component {
 									{/*signup modal*/}
 									<button
 										type="button"
-										className="btn btn-primary"
+										className="btn btn-outline-primary"
 										data-toggle="modal"
 										data-target="#signup"
 									>
@@ -160,12 +124,13 @@ class NavBar extends Component {
 									{/*Modal login with form*/}
 									<button
 										type="button"
-										className="btn btn-primary"
+										className="btn btn-outline-primary"
 										data-toggle="modal"
 										data-target="#login"
 									>
 										Log In
 									</button>
+									{/*login card*/}
 									<div
 										className="modal fade"
 										id="login"
@@ -190,7 +155,7 @@ class NavBar extends Component {
 													</button>
 												</div>
 												<div className="modal-body">
-													<Login login={this.login} />
+													<Login login={this.login}  />
 												</div>
 												<div className="modal-footer">
 													<button
@@ -208,39 +173,26 @@ class NavBar extends Component {
 										</div>
 									</div>
 
-									{/*end modal login*/}
-								</a>
+							</a>
+								{/*end modal login*/}
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="#">
-									Sign Out
+									<button
+										type="button"
+										className="btn btn-outline-primary"
+									>
+										Sign Out
+									</button>
 								</a>
 							</li>
-							<li className="nav-item dropdown">
-								<a
-									className="nav-link dropdown-toggle"
-									href="#"
-									id="navbarDropdown"
-									role="button"
-									data-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false"
-								>
-									Dropdown
+							{/*End Signup button*/}
+							<li className="nav-item">
+								<a className="nav-link" href="#">
+										<Profile />							
 								</a>
-								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a className="dropdown-item" href="#">
-										Sign Up
-									</a>
-									<a className="dropdown-item" href="#">
-										Log In
-									</a>
-									<div className="dropdown-divider" />
-									<a className="dropdown-item" href="#">
-										Settings
-									</a>
-								</div>
 							</li>
+
 						</ul>
 					</div>
 				</nav>
