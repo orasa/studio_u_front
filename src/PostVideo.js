@@ -32,6 +32,9 @@ class PostVideo extends Component {
 		//
 	}
 
+	//add createVideoPost function on App.js, use as props here as a child
+	//call onSubmit
+
 	render() {
 		return (
 			<div

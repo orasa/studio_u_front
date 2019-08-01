@@ -14,6 +14,11 @@ class NavBar extends Component {
 		// error: ''
 	};
 
+logOut = () => {
+	localStorage.removeItem('token');
+	console.log('You are successfully Signed out!');
+	window.location = '/login'
+}
 
 	// Render
 	render() {
@@ -181,6 +186,7 @@ class NavBar extends Component {
 									<button
 										type="button"
 										className="btn btn-outline-primary"
+										onClick={() => this.logOut()}
 									>
 										Sign Out
 									</button>
@@ -188,8 +194,9 @@ class NavBar extends Component {
 							</li>
 							{/*End Signup button*/}
 							<li className="nav-item">
-								<a className="nav-link" href="#">
-										<Profile />							
+								<a className="nav-link" href="/profile">
+									<button type="button"
+									className="btn btn-outline-primary">Profile</button>
 								</a>
 							</li>
 
