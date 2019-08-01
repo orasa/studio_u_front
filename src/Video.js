@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './App.css';
+import axios from 'axios'
+import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 
 class Video extends Component {
 	state = {
 		video: this.props.video
-	};
+	}
+
+
+//functions
+	//to add likes see note on addLike_note.js
+
+
+	incrementLikes = () => {
+ 	 console.log("Give me some loves")
+	 axios
+		 .patch(`http://localhost:4000/api/videos/${this.state.video._id}`, {likes: this.state.video.likes + 1})
+		 .then(res => {
+			 this.setState({
+				 video: res.data
+			 });
+			 console.log('res.data from axios ', res.data);
+		 })
+		 .catch(err => {
+			 console.log('err', err);
+		 });
+  }
+
 
 	//Render
 	render() {
 		return (
-			<div className="card-columns d-flex  m-3">
-				<div className="card">
-					<div className="p-3">
-						<div className="iframe">
+			<div className="card-columns d-flex  m-2">
+				<div className="card mt-2 bg-light">
 							<iframe
-								className="w-100"
+								className="w-100 p-1" width="150"
 								src={`https://www.youtube.com/embed/${this.state.video.link}`}
 								frameBorder="0"
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -24,11 +47,19 @@ class Video extends Component {
 							<div className="card-body">
 								<h5 className="card-title">{this.state.video.category.name}</h5>
 								<p className="card-text">{this.state.video.description}</p>
-							</div>
-						</div>
-					</div>
-				</div>
+
+								<p className="card-text">{this.state.video.likes}</p>
+
+		       <FontAwesomeIcon
+					  icon={ faHeart }
+						 onClick={ this.incrementLikes }
+
+					  style={{ color: "#84d9ff"}}
+		        /> <span>{this.state.video.likes}</span>
+
+				  </div>
 			</div>
+		</div>
 		);
 	}
 }
