@@ -5,16 +5,16 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
-
+// child of VideosHub,
 class Video extends Component {
 	state = {
-		video: this.props.video
+		video: this.props.video,
+		videos: []
 	}
 
 
 //functions
-	//to add likes see note on addLike_note.js
-
+//to add likes see note on addLike_note.js
 
 	incrementLikes = () => {
  	 console.log("Give me some loves")
@@ -33,6 +33,7 @@ class Video extends Component {
 
 
 	//Render
+
 	render() {
 		return (
 			<div className="card-columns d-flex  m-2">
@@ -45,17 +46,17 @@ class Video extends Component {
 								allowsfullscreen="true"
 							/>
 							<div className="card-body">
-								<h5 className="card-title">{this.state.video.category.name}</h5>
-								<p className="card-text">{this.state.video.description}</p>
+								<h5 className="card-title">{this.state.video.description}</h5>
+								<p className="card-text">{this.state.video.category.name}</p>
 
-								<p className="card-text">{this.state.video.likes}</p>
-
-		       <FontAwesomeIcon
-					  icon={ faHeart }
-						 onClick={ this.incrementLikes }
-
-					  style={{ color: "#84d9ff"}}
-		        /> <span>{this.state.video.likes}</span>
+						   {/*add FontAwesomeIcon*/}
+				         <FontAwesomeIcon
+							  icon={ faHeart }
+								 onClick={ this.incrementLikes }
+							  style={{ color: "#84d9ff"}}
+				        />
+							{/*display number and update when increased */}
+							   <span>{this.state.video.likes}</span>
 
 				  </div>
 			</div>

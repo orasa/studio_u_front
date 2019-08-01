@@ -13,17 +13,12 @@ class VideosHub extends Component {
 
 	//Functions
 	//get videos
-	componentWillMount() {
-		axios
-			.get('http://localhost:4000/api/videos')
-			.then(res => {
-				this.setState({
-					videos: res.data
-				});
-			})
-			.catch(err => {
-				console.log('err', err);
-			});
+	//componentWillMount with no axios
+	componentWillMount() {}
+
+	componentWillReceiveProps(props) {
+		console.log("Props", props.videos);
+		this.setState({videos: props.videos})
 	}
 
 	//Render
