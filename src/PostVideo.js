@@ -22,7 +22,10 @@ class PostVideo extends Component {
 			.get('http://localhost:4000/api/categories')
 			.then(res => {
 				this.setState({
-					categories: res.data
+					categories: res.data,
+					//add category: res.data[0] so we set 1st category as default
+					//if user didn't change to another category, 1st ca. will be chosen
+					category: res.data[0]
 				});
 				console.log('res.data from axios get category', res.data);
 			})

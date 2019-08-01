@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import axios from 'axios';
-import NavBar from './NavBar';
+
 
 class Signup extends Component {
 	// Data
@@ -41,6 +41,7 @@ class Signup extends Component {
 					localStorage.setItem('token', res.data.token);
 					// this.props.auth();
 					console.log('Hello again');
+					//redirect to homepage
 					window.location = '/';
 				}
 			})

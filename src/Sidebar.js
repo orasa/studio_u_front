@@ -6,7 +6,6 @@ import Category from './Category';
 
 class Sidebar extends Component {
 	state = {
-		sidebarName: 'Categories',
 		categories: []
 	};
 
@@ -20,7 +19,7 @@ class Sidebar extends Component {
 				this.setState({
 					categories: res.data
 				});
-				this.selectCategory(res.data[0]._id);
+				// this.selectCategory(res.data[0]._id);
 				console.log('res.data[0], res.data[0]');
 			})
 			.catch(err => {
@@ -30,12 +29,12 @@ class Sidebar extends Component {
 
 	//functions
 	selectCategory = id => {
-		let categories = this.state.categories;
-		categories.forEach(c => delete c.active);
-		let category = categories.find(c => c._id === id);
+		let categories = this.state.categories
+		categories.forEach(c => delete c.active)
+		let category = categories.find((c) => c._id === id)
 		category.active = true;
 		this.setState({ categories });
-		this.props.getVideos(id);
+		this.props.setCategory(id);
 	};
 
 	//Render
@@ -46,7 +45,7 @@ class Sidebar extends Component {
 					type="button"
 					className="list-group-item list-group-item-action active"
 				>
-					Pick cateory
+					<p className="categoryPick" >Pick cateory</p>
 				</button>
 				<button
 					type="button"
@@ -64,20 +63,6 @@ class Sidebar extends Component {
 				</button>
 			</div>
 		);
-
-		{
-			/*	<div id="sidebar" className="col-2 p-2 m-2">
-					 <h4>{this.state.sidebarName}</h4>
-					 <div className="sidebarUl">
-					 {
-						this.state.categories.map((c) => {
-							return <Category category={c} key={c._id}
-						selectCategory={this.selectCategory} />
-						})
-					}
-					 </div>
-				 </div>*/
-		}
 	}
 }
 

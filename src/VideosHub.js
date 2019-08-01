@@ -16,6 +16,7 @@ class VideosHub extends Component {
 	//componentWillMount with no axios
 	componentWillMount() {}
 
+//After the componentWillMount wait for a while and use Component will recieve props
 	componentWillReceiveProps(props) {
 		console.log("Props", props.videos);
 		this.setState({videos: props.videos})

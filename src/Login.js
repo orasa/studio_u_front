@@ -38,11 +38,15 @@ class Login extends Component {
 					//redirect to homepage
 					window.location = '/';
 				}
+
 			})
 			.catch(err => {
 				console.log('err', err);
 			});
 	};
+
+
+
 
 	// Render
 	render() {
@@ -71,9 +75,9 @@ class Login extends Component {
 									/>
 								</div>
 								<div className="error">{this.state.error}</div>
-								<button type="submit" className="btn btn-success">
-									Login
-								</button>
+									<button type="submit" className="btn btn-success">
+										Login
+									</button>
 							</form>
 						</div>
 					</div>
