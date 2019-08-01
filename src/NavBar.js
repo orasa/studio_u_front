@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Signup from './Signup';
 import Login from './Login';
 import Signout from './Login';
-import Profile from './Profile'
+// import Profile from './Profile'
 
 
 class NavBar extends Component {
@@ -13,7 +13,7 @@ class NavBar extends Component {
 		// password: '',
 		// error: ''
 	};
-
+	//functions
 logOut = () => {
 	localStorage.removeItem('token');
 	console.log('You are successfully Signed out!');
@@ -181,6 +181,7 @@ logOut = () => {
 							</a>
 								{/*end modal login*/}
 							</li>
+							{/* Sign out button */}
 							<li className="nav-item">
 								<a className="nav-link" href="#">
 									<button
@@ -193,6 +194,7 @@ logOut = () => {
 								</a>
 							</li>
 							{/*End Signup button*/}
+							{/* Profile button*/}
 							<li className="nav-item">
 								<a className="nav-link" href="/profile">
 									<button type="button"
@@ -205,20 +207,13 @@ logOut = () => {
 				</nav>
 				{/* search form */}
 				<span>
-					<form className="form-inline my-2 my-lg-0">
-						<input
-							className="form-control mr-sm-2 m-3"
-							type="search"
-							placeholder="Search"
-							aria-label="Search"
-						/>
-						<button
-							className="btn btn-outline-success my-2 my-sm-0"
-							type="submit"
-						>
-							Search
-						</button>
-					</form>
+					<input
+						className="form-control mr-sm-2 m-3"
+						type="search"
+						placeholder="Search"
+						aria-label="Search"
+						onChange={(e) => this.props.search(e)}
+					/>
 				</span>
 			</div>
 		);

@@ -15,17 +15,58 @@ class App extends Component {
 	state = {
 		videos: [],
 		categories: [],
-		category: ''
+		category: '',
+		searchString: ''
 	};
 
-	getVideos = id => {
+ //
+
+getAllVideos = () => {
+	axios.get(`http://localhost:4000/api/videos`).then((res) => {
+		console.log('**** videos from getAllVideos', res.data);
+		this.setState({
+			videos: res.data
+		})
+	}).catch((err) => {
+		console.log('err', err)
+	})
+}
+
+
+	setCategory = (id) => {
+		console.log('id', id);
 		this.setState({
 			category: id
-		});
-	};
+		}, () => this.getVideosByCategory())
+	}
+
+	getVideosByCategory = () => {
+		console.log('ssss', this.state.category);
+		axios.get(`http://localhost:4000/api/videos?category=${this.state.category}`).then((res)=>{
+			this.setState({
+				videos: res.data
+			}, () => console.log(this.state.videos))
+		}).catch((err) => {
+			console.log("err form getVideosByCategory", err);
+		})
+	}
+
+	search = (e) => {
+		console.log(e.target.value);
+		this.setState({
+			searchString: e.target.value
+		})
+		let videos = this.state.videos
+		let found = videos.filter((v) => v.description.includes(e.target.value))
+		console.log('>>>>>> found', found);
+		this.setState({
+			videos: found
+		})
+	}
 
 	createVideoPost = (e, data) => {
 		e.preventDefault()
+		console.log('data', data);
 		let token = localStorage.getItem('token')
 		if (token) {
 			console.log('data in App', data);
@@ -40,6 +81,10 @@ class App extends Component {
 					videos.unshift(res.data);
 					console.log('createVideoPost res', res);
 					this.setState({ videos });
+					document.getElementById('newVideo').classList.remove('show')
+					document.getElementById('newVideo').removeAttribute("style")
+					document.getElementById('newVideo').setAttribute('style', 'display: none')
+					document.getElementsByClassName('modal-backdrop')[0].classList.remove('show')
 				})
 				.catch(err => {
 					console.log('err axios post', err);
@@ -50,18 +95,23 @@ class App extends Component {
 			}
 	};
 
+	componentWillMount() {
+		this.getAllVideos()
+	}
+
 	//Render
 	//import component PostVideo call function createVideoPost
 	render() {
 		return (
 			<div className="wrap">
-				<Profile />
+				{/*
+				<Profile />*/}
+				<NavBar search={this.search} />
 				<PostVideo createVideoPost={this.createVideoPost} />
-				<div id="title" className="row p-3">
+			{/*	<div id="title" className="row p-3">
 					<p className="title text-left">Studio Unicorns</p>
-				</div>
+				</div>*/}
 
-				<NavBar />
 				<button
 					type="button"
 					className="btn btn-outline-dark m-3 btn-lg"
@@ -77,7 +127,7 @@ class App extends Component {
 					{/* import a child Componnet Sidebar, Content to render here*/}
 					<Sidebar
 						categories={this.state.categories}
-						getVideos={this.getVideos}
+						setCategory={this.setCategory}
 					/>
 					<VideosHub videos={this.state.videos} />
 				</div>
