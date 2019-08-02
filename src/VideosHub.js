@@ -25,7 +25,7 @@ class VideosHub extends Component {
 	//Render
 	render() {
 		return (
-			<div>
+			<div className="VideosHub m-1">
 				{this.state.videos.map(vid => {
 					console.log('vid form Map1', vid);
 					return <Video video={vid} key={vid._id} />;

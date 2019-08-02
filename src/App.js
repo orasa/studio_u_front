@@ -108,9 +108,6 @@ getAllVideos = () => {
 				<Profile />*/}
 				<NavBar search={this.search} />
 				<PostVideo createVideoPost={this.createVideoPost} />
-			{/*	<div id="title" className="row p-3">
-					<p className="title text-left">Studio Unicorns</p>
-				</div>*/}
 
 				<button
 					type="button"
@@ -125,11 +122,13 @@ getAllVideos = () => {
 
 				<div id="main">
 					{/* import a child Componnet Sidebar, Content to render here*/}
-					<Sidebar
-						categories={this.state.categories}
-						setCategory={this.setCategory}
-					/>
-					<VideosHub videos={this.state.videos} />
+					<div className="sidebar">
+						<Sidebar
+							categories={this.state.categories}
+							setCategory={this.setCategory}
+						/>
+					</div>
+						<VideosHub videos={this.state.videos} />
 				</div>
 			</div>
 		);

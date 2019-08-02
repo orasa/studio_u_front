@@ -36,8 +36,8 @@ class Video extends Component {
 
 	render() {
 		return (
-			<div className="card-columns d-flex  m-2">
-				<div className="card mt-2 bg-light">
+
+				<div className="card mt-2 bg-light m-2 p-3">
 							<iframe
 								className="w-100 p-1" width="150"
 								src={`https://www.youtube.com/embed/${this.state.video.link}`}
@@ -60,7 +60,7 @@ class Video extends Component {
 
 				  </div>
 			</div>
-		</div>
+
 		);
 	}
 }
