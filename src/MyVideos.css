@@ -1,0 +1,14 @@
+div.container {
+
+	background-color: pink;
+	width: 100vw;
+	height: 100vh;
+}
+
+.videoBox {
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-column-gap: 30px;
+
+
+}

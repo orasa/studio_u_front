@@ -5,6 +5,7 @@ import Login from './Login'
 import App from './App'
 import PostVideo from './PostVideo'
 import Profile from './Profile'
+import MyVideos from './MyVideos'
 
 class Routes extends Component {
 	// Data
@@ -15,6 +16,7 @@ class Routes extends Component {
 		return (
 			<BrowserRouter>
 				<Switch>
+					<Route path="/myVideos" component={MyVideos} />
 					<Route path="/profile" component={Profile} />
 					<Route path="/signup" component={Signup} />
           <Route path ="/login" component={Login} />
