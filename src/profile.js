@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css'
+import './Profile.css'
 import axios from 'axios'
-import Video from './Video'
+// import Video from './Video'
 import MyVideos from './MyVideos'
 // import VideosHub from './VideosHub'
 
@@ -53,7 +53,7 @@ class Profile extends Component {
 					 <table>
 						 <tbody>
 							 <tr >
-								<td className="info">UserName:</td>
+								<td className="info">Name:</td>
 								<td className="userName"> {this.state.user.name}</td>
 								</tr>
 								{/* email */}
@@ -62,11 +62,7 @@ class Profile extends Component {
  								<td className="userName"> {this.state.user.email}</td>
  								</tr>
 								{/**/}
-								<tr >
- 								<td button type="button" className="myVideosbtn"><a href="/MyVideos">My Videos</a></td>
- 								<td className="MyVideos">
-								</td>
- 								</tr>
+
 								{/*Your Favorite list of vedeos that you likes*/}
 								{/*Your likes sum of all likes you get from others*/}
 								<tr >
@@ -76,6 +72,16 @@ class Profile extends Component {
  						</tr>
 								{/**/}
 						 </tbody>
+						 <tr >
+							 <td className="List">Lists:
+								 <button className="videoLink">
+									<a href="/MyVideos">My Videos</a>
+								 </button>
+							 </td>
+
+						 <td className="MyVideos">
+						 </td>
+						 </tr>
 					</table>
 				</div>
 			</div>

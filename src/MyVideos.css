@@ -1,14 +1,25 @@
-div.container {
 
-	background-color: pink;
-	width: 100vw;
+.container {
+background-color: #9acfe3;
+
 	height: 100vh;
+	border-radius: 10px;
+}
+
+.myListTitle {
+	color: white;
+	margin-top: 10px;
+}
+.status {
+	color: white;
+	font-size: 20px;
 }
 
 .videoBox {
-	display: inline-grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	background-color: #fafafa;
+margin-left: 30px;
+display: inline-grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
 grid-column-gap: 30px;
-
 
 }

@@ -1,0 +1,76 @@
+.profileWrap {
+	background-color: #9acfe3;
+	width: 1200px;
+	height: 100vh;
+	margin-left: 20px;
+	border-radius: 10px;
+}
+
+.profileTitle {
+	color: #fafafa;
+	margin: 20px;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+div.profile {
+
+	margin: 10px;
+	border-radius: 50px;
+	padding: 15px;
+}
+
+.userInfo	{
+	border: solid grey 1px;
+	with: 100vw;
+	heigth: 100vh;
+
+}
+.info {
+	color: #4477b2;
+}
+
+.userName {
+	color: #4477b2;
+}
+.userEmail {
+	color: #4477b2;
+}
+
+
+
+.userDetails	{
+	background-color: #fafafa;
+	width: 1170px;
+	heigth: 100vh;
+	font-size: 20px;
+	margin-left: 20px;
+	border: solid white 1px;
+	padding: 10px;
+	border-radius: 10px;
+}
+.List {
+	color: #4477b2;
+	font-size: 40px;
+	font-weight: bold;
+	position: relative;
+	top: 100px;
+}
+
+button.videoLink {
+width: 150px;
+height: 80px;
+text-align: center;
+background-color: white;
+border-radius: 20px;
+margin: 10px;
+font-size: 25px;
+font-weight: bold;
+position: relative;
+top: 70px;
+bottom: 10px;
+}
+a {
+	color: #4477b2;
+
+}

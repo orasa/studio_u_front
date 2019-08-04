@@ -1,114 +1,104 @@
 .wrap {
    height: auto;
    width: 100vw;
-   background-color: 	#fafafa;
+   /* background-color: #9acfe3; */
+	 background-color: #9fcdde;
+	 /* background-color: #dfe9ec; */
+	 /* background-color: #6593a3; */
+	 /* background-color: #95d1e8; */
+
    padding: 20px;
    margin-top: 0;
-
- }
- nav.button {
-   width: auto;
-   height:50px;
-   position: relative;
-   left: 300px;
-   padding: 5px;
-
  }
 
- .button {
-   width: 200px;
-   /* background-color: #B0E0E6; */
 
- }
  #header {
-  height: 300px;
+  height: 200px;
   width: 100vw;
-  background-image: url("samui.jpg");
+  /* background-image: url("samui.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
   top: 1%;
+	border-radius: 20px;
+	margin-left: 5px;
     }
+/* group of nav buttons */
+ .navbar	{
+	position: relative;
+	top: 58px;
+	width: 600px;
+	height: 70px;
+	margin-right: 20px;
+ }
 
-  div.title {
-    width: 100vw;
-    margin: 0;
 
+	.title {
+		/* color: #130100; */
+		/* color: #121b1e; */
+			/* color: #6593a3; */
+			/* color: #6492a3; */
+			color: white;
+		font-weight: solid;
+		font-style: oblique;
+		font-size: 50px;
+		margin-top: 20px;
+
+	}
+	/* nav.button {
+    width: 500px;
+    height: 1px;
+    padding: 5px;
+ 	 corner-radius: 20px;
+  } */
+
+  .btn {
+ 	 /* background-color: #95d1e8; */
+ 	  /* background-color: #6593a3; */
+		/* background-color: #779ecb; */
+		/* background-color: #6593a3; */
+		background-color: #56b6da;
+ 		margin-top: 10px;
+		padding-right: 10px;
   }
-  .appName {
-    font-size: 35px;
-    margin-left: 20px;
-  }
-  .title {
-    height: 5%;
-    width: 50%;
-    margin:  10px;
-    padding: 0px;
-
-    position: relative;
-    left: 50%;
-    font-size: 25px;
-    color: 	tomato;
-
-  }
-  p.title {
-    margin-left: 20px;
+  .searchBar	{
+ 	 width: 700px;
+ 	 position: relative;
+ 	 left: 650px;
   }
 
 #main {
-  background-color: #fafafa;
-    /* height: 100vh; */
-    width: 100vw;
-    border-radius: 10px;
-    /* position: relative;
-    top: 50px; */
-    margin-top: 0;
-		border: solid 2px;
-	 display: grid;
-	 grid-template-columns: 1fr 4fr;
-  }
+	background-color: #fafafa;
+	width: 100vw;
+	border-radius: 10px;
+	/* position: relative;
+	top: 50px; */
+	margin-top: 20px;
+	border:  1px;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+}
 
 #sidebar {
 	display: grid;
-	width: 200px;
 	grid-template-columns: 1fr;
-
-  background-color: #E0E0E0;
-  margin: 20px 10px 10px 20px;
-  padding: 25px;
-  width: 350px;
-  border-radius: 10px;
-}
-
-.sidebarUl {
-margin-bottom: 100px;
 }
 
 /* sidebar list and signUp Login text */
 li {
+	margin-top: 1px;
+	padding: 10px;
   list-style: none;
   color: 	#4682B4;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400px;
 }
-
-/* .VideosHub  {
-display: grid;
-grid-column-gap: 40px;
-grid-row-gap: 40px;
-height: 100vh;
-
-margin-top: 20px;
-padding: 20px;
-align-items: flex-start;
-border-radius: 10px;
-} */
 
 /* container for videos, render all videos on main VideosHub */
 .VideosHub  {
 	display: inline-grid;
-	grid-template-columns:  1fr 1fr 1fr;
+	grid-template-columns:  1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
   padding-left: 5px;
   margin-left: 5px;
@@ -116,26 +106,27 @@ border-radius: 10px;
   border-radius: 10px;
 
 }
-.postVideo {
-  font-size: 20px;
-  color: white;
-  border-radius: 20px;
-  padding: 15px;
-  background-color: tomato;
-  position: relative;
-  left:  750px;
-}
 
 .card {
+	height: 400px;
+	width: 250px;
 	border-size: 5px;
 	background: 		#fafafa;
 	border-color: solid black;
+	margin-bottom: 10px;
+}
+.card-body {
+	margin-top: 0px;
+	padding: 10px;
 }
 .card-title {
 	font-size: 20px;
-	margin-top: 10px;
-
+	margin-top: 15px;
 }
 .card-text {
 	color: tomato;
+}
+icon {
+
+	margin: 5px;
 }

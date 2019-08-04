@@ -3,23 +3,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Samui from './samui.jpg'
 import './App.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import VideosHub from './VideosHub';
 import PostVideo from './PostVideo';
 import NavBar from './NavBar';
-import Profile from './Profile';
+
 
 class App extends Component {
 	//data
 	state = {
+
 		videos: [],
 		categories: [],
 		category: '',
 		searchString: ''
 	};
-
- //
 
 getAllVideos = () => {
 	axios.get(`http://localhost:4000/api/videos`).then((res) => {
@@ -31,7 +29,6 @@ getAllVideos = () => {
 		console.log('err', err)
 	})
 }
-
 
 	setCategory = (id) => {
 		console.log('id', id);
@@ -64,6 +61,13 @@ getAllVideos = () => {
 		})
 	}
 
+checkAuth = () => {
+	if(localStorage.getItem('token')) {
+		return true
+	} else {
+		return false
+	}
+}
 	createVideoPost = (e, data) => {
 		e.preventDefault()
 		console.log('data', data);
@@ -99,24 +103,23 @@ getAllVideos = () => {
 		this.getAllVideos()
 	}
 
+
 	//Render
 	//import component PostVideo call function createVideoPost
 	render() {
 		return (
 			<div className="wrap">
-				{/*
-				<Profile />*/}
+				{/*<Profile />*/}
 				<NavBar search={this.search} />
-				<PostVideo createVideoPost={this.createVideoPost} />
-
-				<button
+				 <PostVideo createVideoPost={this.createVideoPost}/>
+				{this.checkAuth() ? <button
 					type="button"
 					className="btn btn-outline-dark m-3 btn-lg"
 					data-toggle="modal"
 					data-target="#newVideo"
 				>
 					Post Your Favorite Video
-				</button>
+				</button> : null }
 
 				<div id="header" className="row bg-light" />
 

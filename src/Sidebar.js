@@ -41,12 +41,7 @@ class Sidebar extends Component {
 	render() {
 		return (
 			<div className="list-group m-3">
-				<button
-					type="button"
-					className="list-group-item list-group-item-action active"
-				>
-					<p className="categoryPick" >Pick cateory</p>
-				</button>
+			<h5 className="category m-1">Pick By Categories</h5>
 				<button
 					type="button"
 					className="list-group-item list-group-item-action"

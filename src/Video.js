@@ -12,9 +12,10 @@ class Video extends Component {
 		videos: []
 	}
 
-
 //functions
 //to add likes see note on addLike_note.js
+
+//find the likes on db and udate the count with + 1, setState
 
 	incrementLikes = () => {
  	 console.log("Give me some loves")
@@ -37,7 +38,7 @@ class Video extends Component {
 	render() {
 		return (
 
-				<div className="card mt-2 bg-light m-2 p-3">
+				<div className="card mt-2 bg-light p-2">
 							<iframe
 								className="w-100 p-1" width="150"
 								src={`https://www.youtube.com/embed/${this.state.video.link}`}
@@ -45,7 +46,7 @@ class Video extends Component {
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 								allowsfullscreen="true"
 							/>
-							<div className="card-body">
+						<div className="card-body">
 								<h5 className="card-title">{this.state.video.description}</h5>
 								<p className="card-text">{this.state.video.category.name}</p>
 
@@ -53,7 +54,7 @@ class Video extends Component {
 				         <FontAwesomeIcon
 							  icon={ faHeart }
 								 onClick={ this.incrementLikes }
-							  style={{ color: "#84d9ff"}}
+							  style={{ color: "#ff1f13", marginRight: "10"}}
 				        />
 							{/*display number and update when increased */}
 							   <span>{this.state.video.likes}</span>

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import './Test2.css';
 import Video from './Video';
 // import PostVideo from './PostVideo'
-import axios from 'axios';
+
 
 class VideosHub extends Component {
 	state = {
@@ -13,10 +13,13 @@ class VideosHub extends Component {
 
 	//Functions
 	//get videos
-	//componentWillMount with no axios
+	//componentWillMount with no axios will load the life cycle to
+	//start the state
 	componentWillMount() {}
 
-//After the componentWillMount wait for a while and use Component will recieve props
+//After the componentWillMount wait for a while and use Component will //recieve props to catch the video from
+//parent component(function getAllVideos on App.js, props is all the
+//vedos pass fromt parent fuction)
 	componentWillReceiveProps(props) {
 		console.log("Props", props.videos);
 		this.setState({videos: props.videos})
@@ -25,11 +28,12 @@ class VideosHub extends Component {
 	//Render
 	render() {
 		return (
-			<div className="VideosHub m-1">
+			<div className="VideosHub">
 				{this.state.videos.map(vid => {
-					console.log('vid form Map1', vid);
+					console.log('vid form Map1', vid)
 					return <Video video={vid} key={vid._id} />;
-				})}
+				})
+			}
 			</div>
 		);
 	}

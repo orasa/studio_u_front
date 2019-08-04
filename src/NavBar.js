@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
+import './App.css'
 import Signup from './Signup';
 import Login from './Login';
-import Signout from './Login';
-// import Profile from './Profile'
 
 
 class NavBar extends Component {
 	// Data
-	state = {
-		// name: '',
-		// email: '',
-		// password: '',
-		// error: ''
-	};
+
 	//functions
 logOut = () => {
 	localStorage.removeItem('token');
 	console.log('You are successfully Signed out!');
-	window.location = '/login'
+	alert("You are about to sign out, see you again soon!")
+	window.location = '/'
 }
 
 	// Render
 	render() {
 		return (
+
 			<div>
-				<nav className="navbar navbar-expand-lg bg-light">
-					<a className="navbar-brand mb-1 p-3 bg-light" href="#">
-						<h2>Studio Unicorns</h2>
-					</a>
+				<h1 className="title">Studio Unicorns</h1>
+				<nav className="navbar navbar-expand-lg">
+
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -43,10 +38,10 @@ logOut = () => {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item active">
-								<a className="nav-link" href="#">
+								<a className="nav-link " href="#">
 									<button
 										type="button"
-										className="btn btn-outline-primary"
+										className="btn btn-outline-light"
 										data-toggle="modal"
 										data-target="#about"
 									>
@@ -57,23 +52,10 @@ logOut = () => {
 
 							<li className="nav-item">
 								<a className="nav-link" href="#">
-									<button
-										type="button"
-										className="btn btn-outline-primary"
-										data-toggle="modal"
-										data-target="#about"
-									>
-										About
-									</button>
-
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="#">
 									{/*signup modal*/}
 									<button
 										type="button"
-										className="btn btn-outline-primary"
+										className="btn btn-outline-light"
 										data-toggle="modal"
 										data-target="#signup"
 									>
@@ -129,7 +111,7 @@ logOut = () => {
 									{/*Modal login with form*/}
 									<button
 										type="button"
-										className="btn btn-outline-primary"
+										className="btn btn-outline-light"
 										data-toggle="modal"
 										data-target="#login"
 									>
@@ -170,7 +152,7 @@ logOut = () => {
 													>
 														Close
 													</button>
-													<button type="button" className="btn btn-primary">
+													<button type="button" className="btn btn-outline-light">
 														Save changes
 													</button>
 												</div>
@@ -186,7 +168,7 @@ logOut = () => {
 								<a className="nav-link" href="#">
 									<button
 										type="button"
-										className="btn btn-outline-primary"
+										className="btn btn-outline-light"
 										onClick={() => this.logOut()}
 									>
 										Sign Out
@@ -198,7 +180,7 @@ logOut = () => {
 							<li className="nav-item">
 								<a className="nav-link" href="/profile">
 									<button type="button"
-									className="btn btn-outline-primary">Profile</button>
+									className="btn btn-outline-light">Profile</button>
 								</a>
 							</li>
 
@@ -208,7 +190,7 @@ logOut = () => {
 				{/* search form */}
 				<span>
 					<input
-						className="form-control mr-sm-2 m-3"
+						className="searchBar form-control mr-sm-1 m-3"
 						type="search"
 						placeholder="Search"
 						aria-label="Search"

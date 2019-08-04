@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class Login extends Component {
 	// Data
 	state = {
+		name: '',
 		email: '',
 		password: '',
 		error: ''
@@ -37,6 +39,8 @@ class Login extends Component {
 					console.log('Hello again');
 					//redirect to homepage
 					window.location = '/';
+					console.log('Hello again');
+
 				}
 
 			})

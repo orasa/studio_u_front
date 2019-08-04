@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Category from './Category';
+// import Category from './Category';
 
 class PostVideo extends Component {
 	// Data

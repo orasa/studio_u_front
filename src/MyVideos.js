@@ -54,11 +54,11 @@ class MyVideos extends Component {
 	render() {
 		return (
 			<div className="container">
-				<h2 className="myListTitle m-3 p-3">List of videos posted by {this.state.user.name}</h2>
+				<h2 className="myListTitle  p-3">List of videos posted by {this.state.user.name}***{this.state.user.email}</h2>
+				<span className="status p-4 m-2">Status: Unicorn</span>
 				<div className="videoBox">
 					{this.state.videos.map(vid => {
-							{/*
-							console.log('vid form Map1', vid);*/}
+							
 							return <Video video={vid} key={vid._id} />;
 					  })
 					 }
