@@ -11,7 +11,7 @@ class MyVideos extends Component {
  }
 
  get_loggedUser = () => {
-		 axios.get(`http://localhost:4000/api/find_user`, {
+		 axios.get(`${process.env.REACT_APP_API}/api/find_user`, {
 				 headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`
 				 }
@@ -30,7 +30,7 @@ class MyVideos extends Component {
  }
 
  get_videosByUser = () => {
-	 axios.get(`http://localhost:4000/api/videos?user=${this.state.user._id}`,
+	 axios.get(`${process.env.REACT_APP_API}/api/videos?user=${this.state.user._id}`,
 		 {	headers: {
 				 Authorization: `Bearer ${localStorage.getItem("token")}`
 			 }
@@ -58,7 +58,7 @@ class MyVideos extends Component {
 				<span className="status p-4 m-2">Status: Unicorn</span>
 				<div className="videoBox">
 					{this.state.videos.map(vid => {
-							
+
 							return <Video video={vid} key={vid._id} />;
 					  })
 					 }

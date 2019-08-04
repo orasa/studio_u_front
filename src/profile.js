@@ -22,7 +22,7 @@ class Profile extends Component {
 	//creat function get_videosByUser can call it in get_loggedUser, set state of video
 	//
 	get_loggedUser = () => {
-			axios.get(`http://localhost:4000/api/find_user`, {
+			axios.get(`${process.env.REACT_APP_API}/api/find_user`, {
 	        headers: {
 	          Authorization: `Bearer ${localStorage.getItem("token")}`
 	        }

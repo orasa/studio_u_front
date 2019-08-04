@@ -19,7 +19,7 @@ class PostVideo extends Component {
 
 	componentWillMount() {
 		axios
-			.get('http://localhost:4000/api/categories')
+			.get(`${process.env.REACT_APP_API}/api/categories`)
 			.then(res => {
 				this.setState({
 					categories: res.data,

@@ -20,7 +20,7 @@ class App extends Component {
 	};
 
 getAllVideos = () => {
-	axios.get(`http://localhost:4000/api/videos`).then((res) => {
+	axios.get(`${process.env.REACT_APP_API}/api/videos`).then((res) => {
 		console.log('**** videos from getAllVideos', res.data);
 		this.setState({
 			videos: res.data
@@ -39,7 +39,7 @@ getAllVideos = () => {
 
 	getVideosByCategory = () => {
 		console.log('ssss', this.state.category);
-		axios.get(`http://localhost:4000/api/videos?category=${this.state.category}`).then((res)=>{
+		axios.get(`${process.env.REACT_APP_API}/api/videos?category=${this.state.category}`).then((res)=>{
 			this.setState({
 				videos: res.data
 			}, () => console.log(this.state.videos))
@@ -75,7 +75,7 @@ checkAuth = () => {
 		if (token) {
 			console.log('data in App', data);
 			axios
-				.post('http://localhost:4000/api/video', data, {
+				.post(`${process.env.REACT_APP_API}/api/video`, data, {
 					headers: {
 						Authorization: `Bearer ${localStorage.getItem('token')}`
 					}

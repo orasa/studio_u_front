@@ -20,7 +20,7 @@ class Video extends Component {
 	incrementLikes = () => {
  	 console.log("Give me some loves")
 	 axios
-		 .patch(`http://localhost:4000/api/videos/${this.state.video._id}`, {likes: this.state.video.likes + 1})
+		 .patch(`{${process.env.REACT_APP_API}/api/videos/${this.state.video._id}`, {likes: this.state.video.likes + 1})
 		 .then(res => {
 			 this.setState({
 				 video: res.data
