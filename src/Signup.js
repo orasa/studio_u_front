@@ -27,7 +27,7 @@ class Signup extends Component {
 	signup = e => {
 		e.preventDefault();
 		axios
-			.post(`${process.env.REACT_APP_API}/api/categories`, this.state)
+			.post(`${process.env.REACT_APP_API}/api/signup`, this.state)
 			.then(res => {
 				console.log('Test res.data.token', res.data.token);
 				if (!res.data.token) {
